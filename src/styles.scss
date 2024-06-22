@@ -1,9 +1,30 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root{
     --color1: rgb(203, 203, 203);
     --color2: rgb(232, 194, 91);
+    --color3: #2d394a;
+}
+
+.backgroundDarkMode{
+    background-color: var(--color3);
+    color: white;
+    transition: ease all 1s;
+}
+
+.backgroundLigthMode{
+    background-color: var(--color2);
+    color: black;
+    transition: ease all 1s;
+}
+
+.textColorLigth{
+    color: white;
+}
+.textColorBlack{
+    color: black;
 }

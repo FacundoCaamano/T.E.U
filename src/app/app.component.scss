@@ -1,6 +1,7 @@
 .app{
     display: flex;
     height: 100vh;
+    transition: ease all 0.5s;
     &-navbar{
         width: 15vw;
         margin: 20px 0;
@@ -18,11 +19,11 @@
 
 
 @media screen and (max-width:900px) {
+   
     .app-main{
         margin-top: 100px;
     }
     .app-navbar{
-        background-color: var(--color1);
         border-right: 1px solid black;
         width: 95vw;
         position: absolute;
@@ -53,5 +54,6 @@
         z-index: -200;
         width: 10px;
     }
+   
 
 }

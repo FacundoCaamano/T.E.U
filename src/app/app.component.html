@@ -1,10 +1,10 @@
-<div class="app">
+<div class="app" [ngClass]="(darkMode | async) ? 'backgroundDarkMode'  : ''">
     <div *ngIf="width <= 900" class="btn-menu" >
         <button (click)="stateMenu()">
             <img class="icon-menu" src="../assets/icons/menu.png" alt="">
         </button>
     </div>
-    <nav class="app-navbar" [ngClass]="menuOpen ? 'open' : 'closed'">
+    <nav class="app-navbar" [ngClass]="menuOpen ? 'open' : 'closed'" >
         <app-side-bar/>
     </nav>
     <main class="app-main">

@@ -1,0 +1,11 @@
+<div class="card-navBar" [ngClass]="(modoNocturno | async) ? 'backgroundDarkMode' : 'backgroundLigthMode'">
+    <div class="mode-container" [ngClass]="{'reversed': isReversed}" (click)="setMode()">
+        <span class="mode-text">Mode</span>
+        <button class="icon-modo">
+            <img [attr.src]="(modoNocturno | async) ? '../../../assets/icons/dia-y-noche-A.png' : '../../../assets/icons/dia-y-noche-B.png'" alt="">
+        </button>
+    </div>
+    <div class="footerCard" >
+        <a [ngClass]="(modoNocturno | async)? 'backgroundDarkMode' : 'backgroundLigthMode'" href="https://portfolio-facundo-caamano.vercel.app/home" target="_blank">Sobre mi</a>
+    </div>
+</div>

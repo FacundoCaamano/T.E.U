@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ModeService } from '../core/service/mode.service';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-side-bar',
@@ -7,9 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent {
-  location = location.href
-  constructor(){
-    console.log(this.location);
+  darkMode!:Observable<boolean>
+  constructor(private modeService:ModeService){
+   this.darkMode = this.modeService.modoNocturno$
     
   }
 }

@@ -1,0 +1,49 @@
+.card-navBar{
+    border-radius: 10px;
+    height: 100%;
+    border: 1px solid;
+    padding: 20px;
+}
+.mode-container{
+    width: 100%;
+    display: flex;
+    border: 1px solid black;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+    background-color: var(--color1);
+    border-radius: 60px;
+}
+.icon-modo{
+    border-radius: 100%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    img{
+        width: 30px;
+    }
+}
+.icon-modo, .mode-text {
+    transition: transform 0.5s ease;
+}
+.icon-modo{
+    transform: rotate(180deg);
+}
+.reversed .icon-modo {
+    transform: translateX(-210%);
+}
+.reversed .mode-text {
+    transform: translateX(210%);
+}
+.footerCard{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    align-items: end;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-family: monospace;
+    a{
+        text-decoration: none;
+    }
+}
