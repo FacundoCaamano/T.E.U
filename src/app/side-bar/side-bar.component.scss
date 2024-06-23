@@ -1,10 +1,6 @@
 .nav{
     height: 90vh;
 }
-.ligth{
-    background-color: var(--color1);
-
-}
 .title-container {
     position: relative;
     display: flex;
@@ -52,7 +48,6 @@
 .card-navBar__container{
     height: 180px;
     width: 180px;
-    border-radius: 10px;
     position: absolute;
     translate: 50px;
 }
@@ -75,5 +70,9 @@
         position: static;
         translate: 0;
         
+    }
+    .ligth{
+        background-color: var(--color1);
+    
     }
 }

@@ -1,5 +1,5 @@
-<div class="card-navBar" [ngClass]="(modoNocturno | async) ? 'backgroundDarkMode' : 'backgroundLigthMode'">
-    <div class="mode-container" [ngClass]="{'reversed': isReversed}" (click)="setMode()">
+<div class="card-navBar" [ngClass]="(modoNocturno | async) ? 'backgroundDarkMode darkCard' : 'backgroundLigthMode'">
+    <div class="mode-container" [ngClass]="{'reversed darkCard': isReversed}" (click)="setMode()">
         <span class="mode-text">Mode</span>
         <button class="icon-modo">
             <img [attr.src]="(modoNocturno | async) ? '../../../assets/icons/dia-y-noche-A.png' : '../../../assets/icons/dia-y-noche-B.png'" alt="">

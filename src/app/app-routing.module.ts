@@ -11,10 +11,14 @@ const routes: Routes = [
     path:'to-do-list',
     loadChildren: ()=> import('./features/to-do-list/to-do-list.module').then(m => m.ToDoListModule)
   },
-  // {
-  //   path:'**',
-  //   redirectTo:'home'
-  // }
+  {
+    path:'calculator',
+    loadChildren: ()=> import('./features/calculator/calculator.module').then(m => m.CalculatorModule)
+  },
+   {
+     path:'**',
+     redirectTo:'home'
+   }
 ];
 
 @NgModule({

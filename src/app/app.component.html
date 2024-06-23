@@ -4,10 +4,10 @@
             <img class="icon-menu" src="../assets/icons/menu.png" alt="">
         </button>
     </div>
-    <nav class="app-navbar" [ngClass]="menuOpen ? 'open' : 'closed'" >
+    <nav class="app-navbar animate__animated animate__bounceInDown" [ngClass]="menuOpen ? 'open' : 'closed'" >
         <app-side-bar/>
     </nav>
-    <main class="app-main">
+    <main class="app-main " [ngClass]="(darkMode | async) ? 'dark' : ''">
         <router-outlet/>
     </main>
 </div>

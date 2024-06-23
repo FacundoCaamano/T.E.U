@@ -1,18 +1,23 @@
 .card-navBar{
     border-radius: 10px;
     height: 100%;
-    border: 1px solid;
+    border: 1px solid ;
     padding: 20px;
+    box-shadow: 8px 8px 8px rgb(0, 0, 0);
 }
 .mode-container{
     width: 100%;
     display: flex;
-    border: 1px solid black;
+    border: 1px solid var(--color1);
     align-items: center;
     padding: 5px;
     justify-content: space-between;
     background-color: var(--color1);
     border-radius: 60px;
+    box-shadow: 5px 3px 8px black;
+}
+.darkCard{
+    box-shadow: 4px 4px 5px rgb(143, 143, 143);
 }
 .icon-modo{
     border-radius: 100%;
