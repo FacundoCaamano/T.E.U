@@ -1,1 +1,34 @@
-<p>to-do-list works!</p>
+<section>
+    <div class="to-do-list-header">
+        <h2 class="to-do-list-title">TO-DO-LIST</h2>
+        <h2 class="tasks-title">Mis Tareas</h2>
+    </div>
+    <div class="to-do-list-container">
+        <div *ngFor="let task of (tasks$ | async)" class="task">
+            <div class="caja--1">
+                <div class="task-content">
+                    {{task.content}}
+                </div>
+                <div class="task-dates">
+                    <span>Fecha de Tarea: {{ task.taskDate | date:'short' }}</span>
+                    <span>Creación: {{ task.creationDate | date:'short' }}</span>
+                </div>
+            </div>
+            <div class="caja--2">
+                <div>
+                    <button class="task-actions" (click)="deleteTask(task.id)">
+                        <img src="../../../../assets/icons/basura.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="to-do-list-button">
+        <button class="btn-new-task" (click)="setForm()">
+            Nueva tarea
+        </button>
+    </div>
+</section>
+<div class="formContainer" [ngClass]="formActive ? 'formActive' : 'formDesactive'">    
+    <app-create-task (eventClose)="setForm()"/>    
+</div>

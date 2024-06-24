@@ -1,0 +1,129 @@
+section {
+    height: 100%;
+}
+
+.to-do-list-header {
+    height: 10%;
+    margin-bottom: 20px;
+}
+
+.to-do-list-container {
+    padding: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-height: 80%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.to-do-list-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.to-do-list-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.to-do-list-container::-webkit-scrollbar-thumb {
+    background: var(--color2);
+    border-radius: 10px;
+}
+
+.to-do-list-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.to-do-list-title {
+    margin-left: 30px;
+    font-size: 2rem;
+}
+
+.tasks-title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.task {
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:2px solid var(--color3);
+    .caja--1{
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        width: 100%;
+    }
+}
+
+.task-content {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px; 
+    word-break: break-word; 
+    text-align: left; 
+}
+
+.task-dates {
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.task-dates span {
+    margin: 2px 0;
+}
+
+.to-do-list-button {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-new-task {
+    background-color: var(--color1);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-new-task:hover {
+    background-color: var(--color2);
+}
+.formContainer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease all 0.3s;
+}
+
+.formDesactive{
+    opacity: 0;
+    z-index: -11;
+}
+.task-actions{
+    background: none;
+    border: none;
+    img{
+        width: 40px;
+    }
+}

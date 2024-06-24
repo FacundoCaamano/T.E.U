@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { ToDoListRoutingModule } from './to-do-list-routing.module';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { CreateTaskComponent } from './to-do-list/create-task/create-task.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    ToDoListComponent
+    ToDoListComponent,
+    CreateTaskComponent
   ],
   imports: [
     CommonModule,
-    ToDoListRoutingModule
-  ]
+    ToDoListRoutingModule,
+    ReactiveFormsModule
+  ],
+  providers:[DatePipe]
 })
 export class ToDoListModule { }

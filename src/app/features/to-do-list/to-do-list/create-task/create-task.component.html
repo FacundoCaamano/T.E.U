@@ -1,0 +1,24 @@
+
+<section class="formContainer">
+  <form [formGroup]="form" (ngSubmit)="createTask()" class="form"  [ngClass]="(darkMode | async) ? 'backgroundDarkMode' : ''"> 
+    <div class="btn--cancel">
+      <button (click)="formClose(false)" type="button">X</button>
+    </div>
+    <div class="form--div">
+      <label for="content" class="form--label">Content:</label>
+      <input type="text" id="content"  formControlName="content" class="form--input">
+    </div>
+    
+    <div class="form--div">
+      <label for="taskDate" class="form--label">Task Date:</label>
+      <input type="date" id="taskDate" formControlName="taskDate" class="form--input">
+    </div>
+    
+    <div class="form--div">
+      <label for="creationDate" class="form--label">Creation Date:</label>
+      <input type="text" id="creationDate" [formControl]="formattedCreationDateControl" [value]="formattedCreationDateControl"  readonly class="form--input">
+    </div>
+    
+    <button type="submit" [disabled]="form.invalid" class="btn-submit">Create Task</button>
+  </form>
+</section>
