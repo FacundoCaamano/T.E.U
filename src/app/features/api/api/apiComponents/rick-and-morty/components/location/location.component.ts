@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RickAndMortyService } from '../../service/rick-and-morty.service';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 
 @Component({
   selector: 'app-location',
@@ -10,9 +10,17 @@ import { Observable } from 'rxjs';
 export class LocationComponent {
   page:number = 1
   locations:Observable<any>
+  totalPages!:number
   constructor(private rickService:RickAndMortyService){
     this.rickService.getLocations(this.page)
     this.locations = this.rickService.dataRickAndMorty$
+    if(this.locations){
+      this.locations
+      .pipe(take(1))
+      .subscribe(
+        data => this.totalPages = data.info.pages
+      )
+    }
   }
 
   prevPage(){
@@ -23,7 +31,9 @@ export class LocationComponent {
   }
 
   nextPage(){
-    this.page ++
-    this.rickService.getLocations(this.page);
+    if(this.totalPages > this.page){
+      this.page ++
+      this.rickService.getLocations(this.page);
+    }
   }
 }
