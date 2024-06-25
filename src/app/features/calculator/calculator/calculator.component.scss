@@ -2,10 +2,11 @@
     border: 1px solid #ccc;
     padding: 20px;
     max-width: 400px;
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 60px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+    background-color: var(--color3);
   }
   
   .calculator-screen {

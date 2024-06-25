@@ -37,8 +37,10 @@ export class CreateTaskComponent {
       id:idRandom,
       content: this.form.value.content as string,
       taskDate:  this.form.value.taskDate as string,
-      creationDate:  this.form.value.creationDate as any
+      creationDate:  new Date() 
     }
+    
+    
     this.taskService.createTask(data)
     this.form.reset()
     this.formClose(false)

@@ -15,10 +15,11 @@ const routes: Routes = [
     path:'calculator',
     loadChildren: ()=> import('./features/calculator/calculator.module').then(m => m.CalculatorModule)
   },
-   {
-     path:'**',
-     redirectTo:'home'
-   }
+  {
+    path:'api',
+    loadChildren:() => import('./features/api/api.module').then(m => m.ApiModule)
+  },
+  
 ];
 
 @NgModule({
