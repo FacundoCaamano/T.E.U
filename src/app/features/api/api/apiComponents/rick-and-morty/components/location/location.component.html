@@ -1,0 +1,21 @@
+<button class="btn-back" routerLink="..">Atras</button>
+<div class="api--container">
+    <div class="api">
+      <div class="api-grid">
+        <div class="api-card" *ngFor="let location of (locations | async)?.results">
+          <div class="api-card-header">
+            <h3>{{location.name}}</h3>
+          </div>
+          <div class="api-card-body">
+            <p>Type: {{location.type}}</p>
+            <p>Dimension: {{location.dimension}}</p>
+            <p>Residents: {{location.residents?.length}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="pagination-controls">
+  <button (click)="prevPage()" [disabled]="page === 1">Previous</button>
+  <button (click)="nextPage()">Next</button>
+</div>

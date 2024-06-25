@@ -8,6 +8,6 @@ import { RickAndMortyService } from './service/rick-and-morty.service';
 })
 export class RickAndMortyComponent {
   constructor(private rickAndMortyService:RickAndMortyService){
-    this.rickAndMortyService.getLocations()
+    
   }
 }
