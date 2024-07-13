@@ -6,6 +6,15 @@
     font-family: monospace;
     margin: 5px
 }
+.buttonsContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.selectFilter{
+    background-color: var(--color2);
+    border-radius: 5px;
+}
 .api--container{
     height: 80%;
     overflow: hidden;

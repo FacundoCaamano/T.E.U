@@ -21,6 +21,29 @@ export class RickAndMortyService {
       }
     })
   }
+  getCharacterByName(name:string){
+    this.httpClient.get(this.url + 'character?name=' + name).subscribe(
+    {
+      next:(data)=>{
+        this._dataRickAndMorty$.next(data)
+      },
+      error:()=>{
+        console.log('no se encontraron resultados');
+        
+      }
+    }
+    )
+
+  }
+  getCharactersByStatus(status:string){
+    this.httpClient.get(this.url + 'character?status=' + status).subscribe(
+      {
+        next:(data)=>{
+          this._dataRickAndMorty$.next(data)
+        }
+      }
+    )
+  }
 
   getEpisodes(page:number){
     this.httpClient.get(this.url + 'episode?page=' + page).subscribe({

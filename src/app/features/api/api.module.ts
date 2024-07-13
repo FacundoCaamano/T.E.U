@@ -8,6 +8,7 @@ import { CharacterComponent } from './api/apiComponents/rick-and-morty/component
 import { LocationComponent } from './api/apiComponents/rick-and-morty/components/location/location.component';
 import { EpisodesComponent } from './api/apiComponents/rick-and-morty/components/episodes/episodes.component';
 import { HomeRickAndMortyComponent } from './api/apiComponents/rick-and-morty/components/home-rick-and-morty/home-rick-and-morty.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,11 +19,13 @@ import { HomeRickAndMortyComponent } from './api/apiComponents/rick-and-morty/co
     CharacterComponent,
     LocationComponent,
     EpisodesComponent,
-    HomeRickAndMortyComponent
+    HomeRickAndMortyComponent,
+    
   ],
   imports: [
     CommonModule,
-    ApiRoutingModule
+    ApiRoutingModule,
+    FormsModule
   ]
 })
 export class ApiModule { }

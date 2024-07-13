@@ -1,4 +1,14 @@
-<button class="btn-back" routerLink="..">Atras</button> 
+<div class="buttonsContainer">
+    <button class="btn-back" routerLink="..">Atras</button> 
+    <div>
+        <input type="text" placeholder="Nombre" [(ngModel)]="name" (keypress)="getByName()" >
+        <select  [(ngModel)]="status" (change)="geyByStatus(status)" class="selectFilter">
+            <option value="all">todos</option>
+            <option value="alive">Vivos</option>
+            <option value="dead">Muertos</option>
+        </select>
+    </div>
+</div>
 <hr>
 <div class="api--container">
     <div class="api">
