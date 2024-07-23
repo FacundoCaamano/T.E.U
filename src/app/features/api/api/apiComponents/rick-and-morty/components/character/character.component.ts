@@ -14,9 +14,11 @@ export class CharacterComponent {
   totalPages!:number
   status: string = 'all';
   name!:string
+  errorMessage:Observable<string>
   constructor(private rickService:RickAndMortyService){
     this.rickService.getCharacters(this.page)
     this.characters = this.rickService.dataRickAndMorty$
+    this.errorMessage = this.rickService.errorMessage$
     if(this.characters){
       this.characters
       .pipe(take(1))
@@ -54,5 +56,8 @@ export class CharacterComponent {
     if(this.name != undefined){
       this.rickService.getCharacterByName(this.name)
     }
-   }   
+   } 
+   clear(){
+    this.rickService.getCharacters(this.page)
+   }  
 }

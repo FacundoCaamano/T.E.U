@@ -15,6 +15,18 @@
     background-color: var(--color2);
     border-radius: 5px;
 }
+.clearBtn{
+    background-color: var(--color2);
+    border-radius: 5px;
+    padding: 0 5px;
+}
+.inputName{
+    background: var(--color1);
+    border-color: var(--color3);
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 3px;
+}
 .api--container{
     height: 80%;
     overflow: hidden;

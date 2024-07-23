@@ -1,17 +1,18 @@
 <div class="buttonsContainer">
     <button class="btn-back" routerLink="..">Atras</button> 
     <div>
-        <input type="text" placeholder="Nombre" [(ngModel)]="name" (keypress)="getByName()" >
+        <input type="text" placeholder="Filtrar por nombre" [(ngModel)]="name" (keypress)="getByName()" class="inputName">
         <select  [(ngModel)]="status" (change)="geyByStatus(status)" class="selectFilter">
             <option value="all">todos</option>
             <option value="alive">Vivos</option>
             <option value="dead">Muertos</option>
         </select>
+        <button (click)="clear()" class="clearBtn">Limpiar filtros</button> 
     </div>
 </div>
 <hr>
 <div class="api--container">
-    <div class="api">
+    <div class="api"   *ngIf="!(errorMessage | async)">
         <div class="api-grid">
             <div class="api-card" *ngFor="let character of (characters | async)?.results">
                 <div class="api-card-header">
@@ -28,6 +29,9 @@
             </div>
         </div>
     </div>
+    <div *ngIf="errorMessage">
+        {{errorMessage | async }}
+      </div>
 </div>
 <div class="pagination-controls">
     <button (click)="prevPage()" [disabled]="page === 1">Previous</button>

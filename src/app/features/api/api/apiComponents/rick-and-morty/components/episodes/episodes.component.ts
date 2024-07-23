@@ -9,11 +9,15 @@ import { Observable, take } from 'rxjs';
 })
 export class EpisodesComponent {
   episodes:Observable<any>
+  temporada!:number
+  episode!:number
   page:number = 1
   totalPages!:number
+  errorMessage:Observable<string>
   constructor(private rickService:RickAndMortyService){
-    this.rickService.getEpisodes(this.page)
+    this.loadEpisodes()
     this.episodes = this.rickService.dataRickAndMorty$
+    this.errorMessage = this.rickService.errorMessage$
     if(this.episodes){
       this.episodes
       .pipe(take(1))
@@ -35,5 +39,23 @@ export class EpisodesComponent {
       this.page ++
       this.rickService.getEpisodes(this.page);
     }
+  }
+  search(){
+    let temporada= this.temporada.toString()
+    let episode = this.episode.toString()
+
+    if(temporada.length == 1){
+      temporada = '0' + temporada
+    }
+    if(episode.length == 1){
+      episode = '0' + episode
+    }
+    this.rickService.getEpisodeByEpisode(temporada,episode)
+    
+    
+  }
+
+  loadEpisodes(){
+    this.rickService.getEpisodes(this.page)
   }
 }

@@ -1,7 +1,17 @@
-<button class="btn-back" routerLink="..">Atras</button>
+<div class="buttonsContainer">
+  <button class="btn-back" routerLink="..">Atras</button> 
+  <div>
+    <form>
+      <input [(ngModel)]="temporada" name="temporada" placeholder="Temporada" type="number" min="01" max="07" class="selectFilter" />
+      <input [(ngModel)]="episode" name="episodios" placeholder="Episodios" type="number" min="01" max="99" class="selectFilter" />
+      <button  (click)="search()" class="btnFormFilter">Buscar</button>
+      <button type="reset" (click)="loadEpisodes()" class="btnFormFilter">Limpiar</button>
+    </form>
+  </div>
+</div>
 <hr>
 <div class="api--container">
-    <div class="api">
+    <div class="api"  *ngIf="!(errorMessage | async)">
       <div class="api-grid">
         <div class="api-card" *ngFor="let episode of (episodes | async)?.results">
           <div class="api-card-header">
@@ -14,6 +24,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div *ngIf="errorMessage">
+      {{errorMessage | async }}
     </div>
 </div>
 <div class="pagination-controls">
