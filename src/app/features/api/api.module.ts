@@ -9,6 +9,9 @@ import { LocationComponent } from './api/apiComponents/rick-and-morty/components
 import { EpisodesComponent } from './api/apiComponents/rick-and-morty/components/episodes/episodes.component';
 import { HomeRickAndMortyComponent } from './api/apiComponents/rick-and-morty/components/home-rick-and-morty/home-rick-and-morty.component';
 import { FormsModule } from '@angular/forms';
+import { NasaComponent } from './api/apiComponents/nasa/nasa.component';
+import { NeoWsComponent } from './api/apiComponents/nasa/components/neo-ws/neo-ws.component';
+import { HomeNasaComponent } from './api/apiComponents/nasa/components/home-nasa/home-nasa.component';
 
 
 
@@ -20,6 +23,9 @@ import { FormsModule } from '@angular/forms';
     LocationComponent,
     EpisodesComponent,
     HomeRickAndMortyComponent,
+    NasaComponent,
+    NeoWsComponent,
+    HomeNasaComponent,
     
   ],
   imports: [

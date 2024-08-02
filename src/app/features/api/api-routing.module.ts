@@ -6,6 +6,9 @@ import { CharacterComponent } from './api/apiComponents/rick-and-morty/component
 import { LocationComponent } from './api/apiComponents/rick-and-morty/components/location/location.component';
 import { EpisodesComponent } from './api/apiComponents/rick-and-morty/components/episodes/episodes.component';
 import { HomeRickAndMortyComponent } from './api/apiComponents/rick-and-morty/components/home-rick-and-morty/home-rick-and-morty.component';
+import { NasaComponent } from './api/apiComponents/nasa/nasa.component';
+import { NeoWsComponent } from './api/apiComponents/nasa/components/neo-ws/neo-ws.component';
+import { HomeNasaComponent } from './api/apiComponents/nasa/components/home-nasa/home-nasa.component';
 
 const routes: Routes = [
   {
@@ -35,6 +38,20 @@ const routes: Routes = [
       {
         path:'**',
         redirectTo:'home-rick-and-morty'
+      }
+    ]
+  },
+  {
+    path:'nasa',
+    component: NasaComponent,
+    children:[
+      {
+        path:'home',
+        component:HomeNasaComponent
+      },
+      {
+        path:'NeoWs',
+        component:NeoWsComponent
       }
     ]
   }

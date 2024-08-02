@@ -1,0 +1,132 @@
+.neo-ws {
+  height: 70%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+thead {
+  background-color: #bebebe;
+  color: black;
+
+}
+
+.fechas {
+  margin: 20px;
+  width: 100%;
+  display: flex;
+  gap: 50px;
+}
+
+thead th {
+  padding: 12px;
+  border-bottom: 2px solid #ddd;
+  color: black;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #bebebe;
+  color: black;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #dcdcdc;
+  color: black;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+
+td,
+th {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  color: black;
+}
+
+td a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+table {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+th,
+td {
+  text-align: center;
+}
+
+.inputsContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  div {
+    width: 30%;
+  
+    input[type="date"] {
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+  }
+
+  .buttonSearch {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-end;
+    width: 10%;
+    button {
+      height: 50px;
+      width: 100px;
+    }
+  }
+}
+
+
+input[type="date"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Estilo del botón */
+button {
+  background-color: var(--color2);
+  border: none;
+  padding: 3px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  background-color: #0056b3;
+}

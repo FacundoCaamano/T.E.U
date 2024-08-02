@@ -19,10 +19,10 @@ const routes: Routes = [
     path:'api',
     loadChildren:() => import('./features/api/api.module').then(m => m.ApiModule)
   },
-  {
-    path:'**',
-    redirectTo:'home'
-  }
+  // {
+  //   path:'**',
+  //   redirectTo:'home'
+  // }
   
 ];
 

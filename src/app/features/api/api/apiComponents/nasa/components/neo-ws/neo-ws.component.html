@@ -1,0 +1,48 @@
+<div class="inputsContainer">
+  <div class="inputs">
+    <input type="date" name="start_date" [(ngModel)]="inputStart" >
+    <input type="date" name="end_date" [(ngModel)]="inputEnd" >
+  </div>
+  <div class="buttonSearch">
+    <button [disabled]="(!inputStart)" (click)="inputsDate()">Buscar</button>
+    <p>maximo 7 dias</p>
+  </div>
+</div>
+<div class="fechas">
+  <p>{{inputStart}}</p>
+  <p>{{inputEnd}}</p>
+</div>
+<div class="neo-ws">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Magnitude</th>
+          <th>Diameter (km)</th>
+          <th>Velocity (km/h)</th>
+          <th>Miss Distance (km)</th>
+          <th>Orbiting Body</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let neo of startDate">
+          <td><a [href]="neo.nasa_jpl_url" target="_blank">{{ neo.name }}</a></td>
+          <td>{{ neo.absolute_magnitude_h }}</td>
+          <td>{{ neo.estimated_diameter.kilometers.estimated_diameter_min }} - {{ neo.estimated_diameter.kilometers.estimated_diameter_max }}</td>
+          <td>{{ neo.close_approach_data[0].relative_velocity.kilometers_per_hour }}</td>
+          <td>{{ neo.close_approach_data[0].miss_distance.kilometers }}</td>
+          <td>{{ neo.close_approach_data[0].orbiting_body }}</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr *ngFor="let neo of endDate">
+          <td><a [href]="neo.nasa_jpl_url" target="_blank">{{ neo.name }}</a></td>
+          <td>{{ neo.absolute_magnitude_h }}</td>
+          <td>{{ neo.estimated_diameter.kilometers.estimated_diameter_min }} - {{ neo.estimated_diameter.kilometers.estimated_diameter_max }}</td>
+          <td>{{ neo.close_approach_data[0].relative_velocity.kilometers_per_hour }}</td>
+          <td>{{ neo.close_approach_data[0].miss_distance.kilometers }}</td>
+          <td>{{ neo.close_approach_data[0].orbiting_body }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
