@@ -1,3 +1,4 @@
+<button class="btn-back" routerLink="../home">Atras</button> 
 <div class="inputsContainer">
   <div class="inputs">
     <input type="date" name="start_date" [(ngModel)]="inputStart" >
@@ -12,10 +13,13 @@
   <p>{{inputStart}}</p>
   <p>{{inputEnd}}</p>
 </div>
-<div class="neo-ws">
-    <table>
-      <thead>
-        <tr>
+<div class="loader--container">
+  <div class="loader" *ngIf="loader"></div>
+</div>
+<div class="neo-ws" *ngIf="!loader">
+  <table>
+    <thead>
+      <tr>
           <th>Name</th>
           <th>Magnitude</th>
           <th>Diameter (km)</th>

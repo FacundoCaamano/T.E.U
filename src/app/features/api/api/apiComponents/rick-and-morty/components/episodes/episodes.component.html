@@ -12,6 +12,9 @@
 <hr>
 <div class="api--container">
     <div class="api"  *ngIf="!(errorMessage | async)">
+      <div class="loader--container" *ngIf="loader">
+        <div class="loader"></div>
+    </div>
       <div class="api-grid">
         <div class="api-card" *ngFor="let episode of (episodes | async)?.results">
           <div class="api-card-header">

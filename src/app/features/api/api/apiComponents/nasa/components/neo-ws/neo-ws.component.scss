@@ -3,7 +3,14 @@
   overflow: hidden;
   overflow-y: scroll;
 }
-
+.btn-back{
+  background-color: var(--color2);
+  width: 100px;
+  padding: 5px;
+  border-radius: 10px;
+  font-family: monospace;
+  margin: 5px
+}
 table {
   width: 100%;
   border-collapse: collapse;

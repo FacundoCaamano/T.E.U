@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RickAndMortyService } from '../../service/rick-and-morty.service';
-import { Observable, take } from 'rxjs';
+import { Observable, Subscription, take } from 'rxjs';
 
 @Component({
   selector: 'app-episodes',
@@ -14,10 +14,16 @@ export class EpisodesComponent {
   page:number = 1
   totalPages!:number
   errorMessage:Observable<string>
+  loader:boolean = true
+  subscription!:Subscription
   constructor(private rickService:RickAndMortyService){
     this.loadEpisodes()
     this.episodes = this.rickService.dataRickAndMorty$
     this.errorMessage = this.rickService.errorMessage$
+    this.subscription =this.rickService.loader$.subscribe(
+      data => this.loader = data
+       
+    )
     if(this.episodes){
       this.episodes
       .pipe(take(1))
@@ -29,6 +35,7 @@ export class EpisodesComponent {
 
   prevPage(){
     if(this.page > 1){
+      this.loader = true
       this.page -- 
       this.rickService.getEpisodes(this.page);
     }
@@ -36,11 +43,13 @@ export class EpisodesComponent {
 
   nextPage(){
     if(this.totalPages > this.page){
+      this.loader = true
       this.page ++
       this.rickService.getEpisodes(this.page);
     }
   }
   search(){
+    this.loader = true
     let temporada= this.temporada.toString()
     let episode = this.episode.toString()
 
@@ -56,6 +65,7 @@ export class EpisodesComponent {
   }
 
   loadEpisodes(){
+   
     this.rickService.getEpisodes(this.page)
   }
 }

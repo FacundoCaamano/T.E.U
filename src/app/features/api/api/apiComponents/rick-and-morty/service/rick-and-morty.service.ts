@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import {HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -14,81 +14,104 @@ export class RickAndMortyService {
   private _errorMessage$ = new BehaviorSubject<string>('')
   public errorMessage$ = this._errorMessage$.asObservable()
 
-  constructor(private httpClient:HttpClient) { }
+  private _loader$ = new Subject<boolean>()
+  public loader$ = this._loader$.asObservable()
 
-  getCharacters(page:number){
+  constructor(private httpClient: HttpClient) { }
+
+  getCharacters(page: number) {
     this._errorMessage$.next('')
-    this.httpClient.get(this.url + 'character?page=' + page).subscribe({
-      next:(data)=>{
-        this._dataRickAndMorty$.next(data)
-        
-      },
-      error:()=>{
-        this._errorMessage$.next('no se encontraron resultados')
-      }
-    })
+   
+
+      this.httpClient.get(this.url + 'character?page=' + page).subscribe({
+        next: (data) => {
+          this._loader$.next(false)
+          this._dataRickAndMorty$.next(data)
+          
+          
+        },
+        error: () => {
+          this._loader$.next(false)
+          this._errorMessage$.next('no se encontraron resultados')
+        },
+        complete:()=> {
+          this._loader$.next(false)
+        },
+      })
+    
+
   }
-  getCharacterByName(name:string){
+  getCharacterByName(name: string) {
     this._errorMessage$.next('')
     this.httpClient.get(this.url + 'character?name=' + name).subscribe(
-    {
-      next:(data)=>{
-        this._dataRickAndMorty$.next(data)
-      },
-      error:()=>{
-        this._errorMessage$.next('no se encontraron resultados')
-        
+      {
+        next: (data) => {
+          this._loader$.next(false)
+          this._dataRickAndMorty$.next(data)
+        },
+        error: () => {
+          this._loader$.next(false)
+          this._errorMessage$.next('no se encontraron resultados')
+
+        }
       }
-    }
     )
 
   }
-  getCharactersByStatus(status:string){
+  getCharactersByStatus(status: string) {
     this._errorMessage$.next('')
     this.httpClient.get(this.url + 'character?status=' + status).subscribe(
       {
-        next:(data)=>{
+        next: (data) => {
+          this._loader$.next(false)
           this._dataRickAndMorty$.next(data)
         },
-        error:()=>{
+        error: () => {
+          this._loader$.next(false)
           this._errorMessage$.next('no se encontraron resultados')
         }
       }
     )
   }
 
-  getEpisodes(page:number){
+  getEpisodes(page: number) {
     this._errorMessage$.next('')
     this.httpClient.get(this.url + 'episode?page=' + page).subscribe({
-      next:(data)=>{
+      next: (data) => {
+        this._loader$.next(false)
         this._dataRickAndMorty$.next(data)
-        
+
       },
-      error:()=>{
+      error: () => {
+        this._loader$.next(false)
         this._errorMessage$.next('no se encontraron resultados')
       }
     })
   }
-  getEpisodeByEpisode(temporada:string,episode:string){
+  getEpisodeByEpisode(temporada: string, episode: string) {
     this._errorMessage$.next('')
-    this.httpClient.get(this.url + 'episode?episode=' + "S"+temporada+"E"+episode).subscribe({
-      next:(data)=>{
+    this.httpClient.get(this.url + 'episode?episode=' + "S" + temporada + "E" + episode).subscribe({
+      next: (data) => {
+        this._loader$.next(false)
         this._dataRickAndMorty$.next(data)
-        
+
       },
-      error:()=>{
+      error: () => {
+        this._loader$.next(false)
         this._errorMessage$.next('no se encontraron resultados')
       }
     })
   }
-  getLocations(page:number){
+  getLocations(page: number) {
     this._errorMessage$.next('')
     this.httpClient.get(this.url + 'location?page=' + page).subscribe({
-      next:(data)=>{
+      next: (data) => {
+        this._loader$.next(false)
         this._dataRickAndMorty$.next(data)
-        
+
       },
-      error:()=>{
+      error: () => {
+        this._loader$.next(false)
         this._errorMessage$.next('no se encontraron resultados')
       }
     })
@@ -117,24 +140,28 @@ export class RickAndMortyService {
   //   });
   // }
 
-  getLocationsByName(name:string){
+  getLocationsByName(name: string) {
     this._errorMessage$.next('')
     this.httpClient.get(this.url + 'location?name=' + name).subscribe({
-      next:(data)=>{
+      next: (data) => {
+        this._loader$.next(false)
         this._dataRickAndMorty$.next(data)
       },
-      error:()=>{
+      error: () => {
+        this._loader$.next(false)
         this._errorMessage$.next('no se encontraron resultados')
       }
     })
   }
-  getLocationsByType(type:string){
+  getLocationsByType(type: string) {
     this._errorMessage$.next('')
     this.httpClient.get(this.url + 'location?type=' + type).subscribe({
-      next:(data)=>{
+      next: (data) => {
+        this._loader$.next(false)
         this._dataRickAndMorty$.next(data)
       },
-      error:()=>{
+      error: () => {
+        this._loader$.next(false)
         this._errorMessage$.next('no se encontraron resultados')
       }
     })

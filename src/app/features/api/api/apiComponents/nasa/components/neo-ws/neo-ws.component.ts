@@ -16,10 +16,14 @@ export class NeoWsComponent implements OnDestroy {
   startDate:any;
   endDate:any
 
+  loader!:boolean
+
   subscription = new Subscription()
   constructor(private nasaService:NasaService){
+    this.loader = true
      this.subscription.add(this.nasaService.getAsteroides('2015-09-10','2015-09-14').subscribe(
        (data:any) =>{
+        this.loader = false
         this.startDate = data.near_earth_objects['2015-09-10']
         this.endDate = data.near_earth_objects['2015-09-14']      
 
@@ -33,6 +37,7 @@ export class NeoWsComponent implements OnDestroy {
   }
 
   inputsDate(){
+    this.loader = true
     if(this.inputStart){
       let end
       let endString:any
@@ -49,6 +54,7 @@ export class NeoWsComponent implements OnDestroy {
 
         this.nasaService.getAsteroides(this.inputStart,endString).subscribe(
           (data:any)=>{
+            this.loader = false
             this.startDate =data.near_earth_objects[this.inputStart]
             this.endDate = data.near_earth_objects[endString]
           } 

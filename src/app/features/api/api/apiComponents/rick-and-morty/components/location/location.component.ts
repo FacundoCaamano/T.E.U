@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RickAndMortyService } from '../../service/rick-and-morty.service';
-import { Observable, take } from 'rxjs';
+import { Observable, Subscription, take } from 'rxjs';
 
 @Component({
   selector: 'app-location',
@@ -8,6 +8,8 @@ import { Observable, take } from 'rxjs';
   styleUrls: ['./location.component.scss']
 })
 export class LocationComponent {
+  loader:boolean = true
+  subscription!:Subscription
   errorMessage:Observable<string>
   page:number = 1
   locations:Observable<any>
@@ -19,6 +21,10 @@ export class LocationComponent {
     this.rickService.getLocations(this.page)
     this.locations = this.rickService.dataRickAndMorty$
     this.errorMessage = this.rickService.errorMessage$
+    this.subscription =this.rickService.loader$.subscribe(
+      data => this.loader = data
+       
+    )
     if(this.locations){
       this.locations
       .pipe(take(1))
@@ -28,15 +34,18 @@ export class LocationComponent {
     }
   }
   getByName(){
+    this.loader = true
     this.rickService.getLocationsByName(this.name)
   }
   getByType(){
+    this.loader = true
     this.rickService.getLocationsByType(this.type)
     
   }
 
   prevPage(){
     if(this.page > 1){
+      this.loader = true
       this.page -- 
       this.rickService.getLocations(this.page);
     }
@@ -44,11 +53,13 @@ export class LocationComponent {
 
   nextPage(){
     if(this.totalPages > this.page){
+      this.loader = true
       this.page ++
       this.rickService.getLocations(this.page);
     }
   }
   clear(){
+    this.loader = true
     this.name = ''
     this.rickService.getLocations(this.page)
   }
