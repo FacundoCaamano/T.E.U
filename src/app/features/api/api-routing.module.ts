@@ -9,6 +9,7 @@ import { HomeRickAndMortyComponent } from './api/apiComponents/rick-and-morty/co
 import { NasaComponent } from './api/apiComponents/nasa/nasa.component';
 import { NeoWsComponent } from './api/apiComponents/nasa/components/neo-ws/neo-ws.component';
 import { HomeNasaComponent } from './api/apiComponents/nasa/components/home-nasa/home-nasa.component';
+import { APODComponent } from './api/apiComponents/nasa/components/apod/apod.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
       {
         path:'NeoWs',
         component:NeoWsComponent
+      },
+      {
+        path:'APOD',
+        component:APODComponent
       }
     ]
   }

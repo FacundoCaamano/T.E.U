@@ -1,0 +1,18 @@
+<div>
+    <h2>APOD</h2>
+</div>
+<div class="loader--container">
+    <div class="loader" *ngIf="loading"></div>
+</div>
+<div class="APOD_CONTAINER" *ngIf="!loading">
+    <div class="inputDate">
+        <input type="date" [(ngModel)]="datePicture" (change)="dateApod()" [max]="today">
+    </div>
+    
+    <h2>{{ APOD_DATA?.title }}</h2>
+    <p><strong>Fecha:</strong> {{ APOD_DATA?.date }}</p>
+    <p *ngIf="APOD_DATA?.copyright"><strong>Copyright:</strong> {{ APOD_DATA?.copyright }}</p>
+    <img *ngIf="APOD_DATA?.media_type === 'image'" [src]="APOD_DATA.url" alt="{{ APOD_DATA?.title }}" style="max-width: 100%;">
+    <p>{{ APOD_DATA?.explanation }}</p>
+    <a *ngIf="APOD_DATA?.hdurl" [href]="APOD_DATA.hdurl" target="_blank">Ver imagen en alta resolución</a>
+  </div>
