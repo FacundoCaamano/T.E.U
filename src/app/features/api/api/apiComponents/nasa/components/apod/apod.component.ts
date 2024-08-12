@@ -12,6 +12,7 @@ export class APODComponent implements OnInit, OnDestroy{
   APOD_DATA:any
   subscription:Subscription = new Subscription()
   loading!:boolean
+  imgLoad!:boolean
   today!: string;
   constructor(private nasaService:NasaService){
   }
@@ -25,23 +26,30 @@ export class APODComponent implements OnInit, OnDestroy{
         this.nasaService.APOD().subscribe(data =>{
           this.APOD_DATA = data 
           this.loading =false
+          this.imgLoad=false
         })
       ) 
    
   }
   
   dateApod(){
-    this.loading =true
+    
+    this.loading =false
     console.log(this.datePicture);
     this.subscription.add(
       this.nasaService.APOD(this.datePicture).subscribe(data =>{
         this.loading =false    
         this.APOD_DATA = data
+        this.imgLoad = false; 
       } 
     )
     )
   }
-  
+  imagenLoad(){
+    this.imgLoad = true
+    console.log(this.imgLoad);
+    
+  }
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
   }

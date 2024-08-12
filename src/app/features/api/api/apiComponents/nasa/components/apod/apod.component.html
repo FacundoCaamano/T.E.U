@@ -1,3 +1,4 @@
+<button class="btn-back" routerLink="../home">Atras</button> 
 <div>
     <h2>APOD</h2>
 </div>
@@ -12,7 +13,19 @@
     <h2>{{ APOD_DATA?.title }}</h2>
     <p><strong>Fecha:</strong> {{ APOD_DATA?.date }}</p>
     <p *ngIf="APOD_DATA?.copyright"><strong>Copyright:</strong> {{ APOD_DATA?.copyright }}</p>
-    <img *ngIf="APOD_DATA?.media_type === 'image'" [src]="APOD_DATA.url" alt="{{ APOD_DATA?.title }}" style="max-width: 100%;">
+    <div class="imgContainer">
+        <div *ngIf="!imgLoad"  class="loadImg">      
+            <p>Cargando imagen...</p>
+        </div>
+        
+        <img 
+        *ngIf="APOD_DATA?.media_type === 'image'" 
+        [src]="APOD_DATA.url" 
+        alt="{{ APOD_DATA?.title }}" 
+        (load)="imagenLoad()"
+        style="max-width: 100%;"
+        >
+    </div>
     <p>{{ APOD_DATA?.explanation }}</p>
     <a *ngIf="APOD_DATA?.hdurl" [href]="APOD_DATA.hdurl" target="_blank">Ver imagen en alta resolución</a>
   </div>

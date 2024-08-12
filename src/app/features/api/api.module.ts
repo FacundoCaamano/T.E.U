@@ -13,6 +13,7 @@ import { NasaComponent } from './api/apiComponents/nasa/nasa.component';
 import { NeoWsComponent } from './api/apiComponents/nasa/components/neo-ws/neo-ws.component';
 import { HomeNasaComponent } from './api/apiComponents/nasa/components/home-nasa/home-nasa.component';
 import { APODComponent } from './api/apiComponents/nasa/components/apod/apod.component';
+import { InSightComponent } from './api/apiComponents/nasa/components/in-sight/in-sight.component';
 
 
 
@@ -28,6 +29,7 @@ import { APODComponent } from './api/apiComponents/nasa/components/apod/apod.com
     NeoWsComponent,
     HomeNasaComponent,
     APODComponent,
+    InSightComponent,
     
   ],
   imports: [

@@ -1,0 +1,15 @@
+.btn-back{
+    background-color: var(--color2);
+    width: 100px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-family: monospace;
+    margin: 5px;
+    color: black;
+  }
+  .in-sight__container{
+    overflow-y: hidden;
+    overflow-y: scroll;
+    height: 80%;
+  }

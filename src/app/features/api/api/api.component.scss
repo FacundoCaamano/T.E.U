@@ -28,11 +28,13 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 250px;
     padding: 20px;
-    text-align: center;
     transition: transform 0.3s ease;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
+    p{
+      text-align: start;
+    }
   }
   
   .card:hover {

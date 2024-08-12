@@ -8,8 +8,10 @@
   width: 100px;
   padding: 5px;
   border-radius: 10px;
+  border: 1px solid black;
   font-family: monospace;
-  margin: 5px
+  margin: 5px;
+  color: black;
 }
 table {
   width: 100%;
@@ -136,4 +138,22 @@ button:disabled {
 
 button:not(:disabled):hover {
   background-color: #0056b3;
+}
+
+@media screen and (max-width: 1000px) {
+  .neo-ws {
+    height: 60%;
+    overflow-x: scroll;
+  }
+  .tablaNeo {
+    border-collapse: separate;
+    font-size: 12px;
+    width: 300px;
+  }
+  
+  .inputsContainer {
+    div {
+      width: 100%;
+    }
+  }
 }

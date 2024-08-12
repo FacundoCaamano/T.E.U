@@ -4,5 +4,6 @@ export const environment = {
 
     nasaKey: import.meta.env['NG_APP_KEY_NASA'],
     urlNASA:'https://api.nasa.gov/neo/rest/v1/',
-    APOD_URL: 'https://api.nasa.gov/planetary/apod'
+    APOD_URL: 'https://api.nasa.gov/planetary/apod',
+    INSIGHT_URL:'https://api.nasa.gov/insight_weather/'
 };

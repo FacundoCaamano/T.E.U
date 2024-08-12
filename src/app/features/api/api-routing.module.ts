@@ -10,6 +10,7 @@ import { NasaComponent } from './api/apiComponents/nasa/nasa.component';
 import { NeoWsComponent } from './api/apiComponents/nasa/components/neo-ws/neo-ws.component';
 import { HomeNasaComponent } from './api/apiComponents/nasa/components/home-nasa/home-nasa.component';
 import { APODComponent } from './api/apiComponents/nasa/components/apod/apod.component';
+import { InSightComponent } from './api/apiComponents/nasa/components/in-sight/in-sight.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,10 @@ const routes: Routes = [
       {
         path:'APOD',
         component:APODComponent
+      },
+      {
+        path:'in-sight',
+        component:InSightComponent
       }
     ]
   }
